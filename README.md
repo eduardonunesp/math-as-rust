@@ -383,6 +383,6 @@ fn times(x: i64, y: i64) -> i64 {
 Or using the function `std::iter::Iterator::fold`
 
 ```rust
-(1..7).into_iter().fold(1, |v, acc| acc * v)
+(1..7).into_iter().fold(1, times);
 // # Out: 720
 ```
