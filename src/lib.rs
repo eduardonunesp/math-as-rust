@@ -158,7 +158,7 @@ mod tests {
 
     #[test]
     fn test_capital_i() {
-        let result = (1..7).into_iter().fold(1, |v, acc| acc * v);
+        let result = (1..7).into_iter().fold(1, times);
         assert!(result == 720);
     }
 }
