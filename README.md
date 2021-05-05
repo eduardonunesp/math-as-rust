@@ -131,3 +131,115 @@ The following, on the other hand, represents equality:
 **Important**: the difference between `=` and `==` can be more obvious in code than it is in math literature! In rust, a `=` is an *instruction*. You're telling the machine to interact with the namespace, add something to it or change something in it. In rust, when you write `==` you're asking the machine "may I have a `bool`?". In math, the former case is *either* covered by `:=` or `=`, while the latter case is *usually* `=`, and you might have to do some disambiguating in your reading.
 
 In math, when I write 1 + 1 = 2 I'm making a *judgment*. It's not that i'm asking the world (or the chalkboard) for a bool, it's that I'm keeping track of my beliefs. This distinction is the foundation of *unit tests* or *assertions*.
+
+```rust
+// assert in takes an expression that lands in bool and a string to be printed if it turns out false.
+assert!(plus(1, 1) == 2, "DANGER: PHYSICS IS BROKEN. PLEASE STAY INSIDE.");
+```
+
+It's important to know when a falsehood ought to crash a program vs. when you just want a boolean value. To understand this better, read [this](https://en.wikipedia.org/wiki/G%C3%B6del,_Escher,_Bach).
+
+## square root and complex numbers
+
+A square root operation is of the form:
+
+![squareroot](http://latex.codecogs.com/svg.latex?%5Cleft%28%5Csqrt%7Bx%7D%5Cright%29%5E2%20%3D%20x)
+
+<!-- \left(\sqrt{x}\right)^2 = x -->
+
+In programming we use a `sqrt` function, like so:
+
+```rust
+println!("{}", 2f64.sqrt());
+// Out: 1.4142135623730951
+```
+
+Complex numbers are expressions of the form ![complex](http://latex.codecogs.com/svg.latex?a&space;&plus;&space;ib), where ![a](http://latex.codecogs.com/svg.latex?a) is the real part and ![b](http://latex.codecogs.com/svg.latex?b) is the imaginary part. The imaginary number ![i](http://latex.codecogs.com/svg.latex?i) is defined as:
+
+![imaginary](http://latex.codecogs.com/svg.latex?i%3D%5Csqrt%7B-1%7D).
+<!-- i=\sqrt{-1} -->
+
+```rust
+println!("{}", 2f64.sqrt());
+// Out: 1+1i
+
+use num::Complex;
+let complex_integer = num::Complex::new(1, 1);
+println!("{}", complex_integer.sqrt());
+// Out: 1.0986841134678098+0.45508986056222733i
+
+// we can represent the basic meaning of the imaginary unit like so
+let cn1 = num::complex::Complex::new(-1, 0);
+let cn2 = num::complex::Complex::new(0, 1);
+assert!(cn1 == cn2); // Should fail
+```
+
+## dot & cross
+
+The dot `·` and cross `×` symbols have different uses depending on context.
+
+They might seem obvious, but it's important to understand the subtle differences before we continue into other sections.
+
+### scalar multiplication
+
+Both symbols can represent simple multiplication of scalars. The following are equivalent:
+
+![dotcross1](http://latex.codecogs.com/svg.latex?5%20%5Ccdot%204%20%3D%205%20%5Ctimes%204)
+
+<!-- 5 \cdot 4 = 5 \times 4 -->
+
+In programming languages we tend to use asterisk for multiplication:
+
+```rust
+let result = 5 * 4
+```
+
+Often, the multiplication sign is only used to avoid ambiguity (e.g. between two numbers). Here, we can omit it entirely:
+
+![dotcross2](http://latex.codecogs.com/svg.latex?3kj)
+
+<!-- 3kj -->
+
+If these variables represent scalars, the code would be:
+
+```rust
+let result = 3 * k * j
+```
+
+
+#### vector multiplication
+
+To denote multiplication of one vector with a scalar, or element-wise multiplication of a vector with another vector, we typically do not use the dot `·` or cross `×` symbols. These have different meanings in linear algebra, discussed shortly.
+
+Let's take our earlier example but apply it to vectors. For element-wise vector multiplication, you might see an open dot `∘` to represent the [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_%28matrices%29).<sup>[2]</sup>
+
+![dotcross3](http://latex.codecogs.com/svg.latex?3%5Cmathbf%7Bk%7D%5Ccirc%5Cmathbf%7Bj%7D)
+
+<!-- 3\mathbf{k}\circ\mathbf{j} -->
+
+In other instances, the author might explicitly define a different notation, such as a circled dot `⊙` or a filled circle `●`.<sup>[3]</sup>
+
+Here is how it would look in code, using arrays `[x, y]` to represent the 2D vectors.
+
+```rust
+let s = 3
+let k = vec![1, 2]
+let j = vec![2, 3]
+
+let tmp = multiply(k, j)
+let result = multiply_scalar(tmp, s)
+// Out: [6, 18]
+```
+
+Our `multiply` and `multiply_scalar` functions look like this:
+
+```rust
+fn multiply(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
+    let it = a.iter().zip(b.iter());
+    it.map(|(x, y)| x * y).collect()
+}
+
+fn multiply_scalar(a: Vec<i64>, scalar: i64) -> Vec<i64> {
+    a.iter().map(|v| v * scalar).collect()
+}
+```
