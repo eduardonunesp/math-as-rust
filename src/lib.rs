@@ -61,6 +61,10 @@ fn sum_to_n(n: f64) -> f64 {
     (n * (n + 1.)) / 2.
 }
 
+fn times(x: i64, y: i64) -> i64 {
+    x * y
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -150,5 +154,11 @@ mod tests {
     #[test]
     fn test_sum_to_n() {
         assert!(sum_to_n(100.) == 5050.)
+    }
+
+    #[test]
+    fn test_capital_i() {
+        let result = (1..=7).into_iter().fold(0, |v, acc| acc * v);
+        println!("result {}", result);
     }
 }

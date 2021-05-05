@@ -363,3 +363,26 @@ In code:
   .sum::<i32>();
 // Out: 135
 ```
+
+## capital Pi
+
+The capital Pi or "Big Pi" is very similar to [Sigma](#sigma), except we are using multiplication to find the product of a sequence of values.
+
+Take the following:
+
+![capitalPi](http://latex.codecogs.com/svg.latex?%5Cprod_%7Bi%3D1%7D%5E%7B6%7Di)
+
+<!-- \prod_{i=1}^{6}i -->
+
+```rust
+fn times(x: i64, y: i64) -> i64 {
+  x * y
+}
+```
+
+Or using the function `std::iter::Iterator::fold`
+
+```rust
+// reduce(times, range(1,7))
+// # Out: 720
+```
