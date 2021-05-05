@@ -243,3 +243,58 @@ fn multiply_scalar(a: Vec<i64>, scalar: i64) -> Vec<i64> {
     a.iter().map(|v| v * scalar).collect()
 }
 ```
+
+#### dot product
+
+The dot symbol `·` can be used to denote the [*dot product*](https://en.wikipedia.org/wiki/Dot_product) of two vectors. Sometimes this is called the *scalar product* since it evaluates to a scalar.
+
+![dotcross4](http://latex.codecogs.com/svg.latex?%5Cmathbf%7Bk%7D%5Ccdot%20%5Cmathbf%7Bj%7D)
+
+<!-- \mathbf{k}\cdot \mathbf{j} -->
+
+It is a very common feature of linear algebra, and with a 3D vector it might look like this:
+
+```python
+k = [0, 1, 0]
+j = [1, 0, 0]
+
+d = np.dot(k, j)
+# Out: 0
+```
+
+The result `0` tells us our vectors are perpendicular. Here is a `dot` function for 3-component vectors:
+
+```python
+def dot(a, b):
+  return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+```
+
+#### cross product
+
+The cross symbol `×` can be used to denote the [*cross product*](https://en.wikipedia.org/wiki/Cross_product) of two vectors.
+
+![dotcross5](http://latex.codecogs.com/svg.latex?%5Cmathbf%7Bk%7D%5Ctimes%20%5Cmathbf%7Bj%7D)
+
+<!-- \mathbf{k}\times \mathbf{j} -->
+
+In code, it would look like this:
+
+```rust
+let k = vec![0, 1, 0];
+let j = vec![1, 0, 0];
+let result = cross(k, j);
+// Out: [ 0, 0, -1 ]
+```
+
+Here, we get `[0, 0, -1]`, which is perpendicular to both **k** and **j**.
+
+Our `cross` function:
+
+```rust
+fn cross(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
+    let rx = a[1] * b[2] - a[2] * b[1];
+    let ry = a[2] * b[0] - a[0] * b[2];
+    let rz = a[0] * b[1] - a[1] * b[0];
+    vec![rx, ry, rz]
+}
+```

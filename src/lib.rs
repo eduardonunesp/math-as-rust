@@ -38,6 +38,13 @@ fn multiply_scalar(a: Vec<i64>, scalar: i64) -> Vec<i64> {
     a.iter().map(|v| v * scalar).collect()
 }
 
+fn cross(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
+    let rx = a[1] * b[2] - a[2] * b[1];
+    let ry = a[2] * b[0] - a[0] * b[2];
+    let rz = a[0] * b[1] - a[1] * b[0];
+    vec![rx, ry, rz]
+}
+
 fn sum_to_n(n: f64) -> f64 {
     (n * (n + 1.)) / 2.
 }
@@ -92,6 +99,14 @@ mod tests {
         let j = vec![2, 3];
         let tmp = multiply(k, j);
         assert!(multiply_scalar(tmp, s) == vec![6, 18]);
+    }
+
+    #[test]
+    fn test_cross() {
+        let k = vec![0, 1, 0];
+        let j = vec![1, 0, 0];
+        let result = cross(k, j);
+        assert!(result == vec![0, 0, -1]);
     }
 
     #[test]
