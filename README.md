@@ -254,18 +254,18 @@ The dot symbol `·` can be used to denote the [*dot product*](https://en.wikiped
 
 It is a very common feature of linear algebra, and with a 3D vector it might look like this:
 
-```python
-k = [0, 1, 0]
-j = [1, 0, 0]
+```rust
+let k = [0, 1, 0];
+let j = [1, 0, 0];
 
-d = np.dot(k, j)
-# Out: 0
+let d = dot(k, j);
+// Out: 0
 ```
 
 The result `0` tells us our vectors are perpendicular. Here is a `dot` function for 3-component vectors:
 
-```python
-def dot(a, b):
+```rust
+fn dot(a, b):
   return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
 ```
 
@@ -297,4 +297,69 @@ fn cross(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
     let rz = a[0] * b[1] - a[1] * b[0];
     vec![rx, ry, rz]
 }
+```
+
+## sigma
+
+The big Greek `Σ` (Sigma) is for [Summation](https://en.wikipedia.org/wiki/Summation). In other words: summing up some numbers.
+
+![sigma](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B100%7Di)
+
+<!-- \sum_{i=1}^{100}i -->
+
+Here, `i=1` says to start at `1` and end at the number above the Sigma, `100`. These are the lower and upper bounds, respectively. The *i* to the right of the "E" tells us what we are summing. In code:
+
+Hence, the big sigma is the `std::iter::Sum` module.
+
+```rust
+std::iter::Sum::sum((0..=100).into_iter())
+// Out: 5050
+```
+
+**Tip:** With whole numbers, this particular pattern can be optimized to the
+following (and try to [grok the
+proof](http://mathcentral.uregina.ca/QQ/database/QQ.02.06/jo1.html). The legend
+of how Gauss discovered I can only describe as "typical programmer antics"):
+
+```rust
+fn sum_to_n(n: f64) -> f64 {
+    (n * (n + 1.)) / 2.
+}
+```
+
+Here is another example where the *i*, or the "what to sum," is different:
+
+![sum2](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B100%7D%282i&plus;1%29)
+
+<!-- \sum_{i=1}^{100}(2i+1) -->
+
+In code:
+
+```rust
+std::iter::Sum::sum((0..n).map(|k| 2 * k + 1).into_iter())
+// Out: 10000
+```
+
+**important**: `range` in Rust has an *inclusive lower bound and exclusive
+upper bound*, meaning that `... (0..100)` is equivalent to `the sum of
+... for k=0 to k=n`.
+
+If you're still not absolutely fluent in indexing for these applications, spend some time with [Trev Tutor](https://youtu.be/TDpQSa3hJRw) on youtube.
+
+The notation can be nested, which is much like nesting a `for` loop. You should
+evaluate the right-most sigma first, unless the author has enclosed them in
+parentheses to alter the order. However, in the following case, since we are
+dealing with finite sums, the order does not matter.
+
+![sigma3](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B2%7D%5Csum_%7Bj%3D4%7D%5E%7B6%7D%283ij%29)
+
+<!-- \sum_{i=1}^{2}\sum_{j=4}^{6}(3ij) -->
+
+In code:
+
+```rust
+(1..3i32)
+  .map(|i| (4..7i32).map(|j| 3 * i * j).sum::<i32>())
+  .sum::<i32>();
+// Out: 135
 ```

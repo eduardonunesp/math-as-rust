@@ -38,11 +38,23 @@ fn multiply_scalar(a: Vec<i64>, scalar: i64) -> Vec<i64> {
     a.iter().map(|v| v * scalar).collect()
 }
 
+fn dot(a: Vec<i64>, b: Vec<i64>) -> i64 {
+    a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+}
+
 fn cross(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
     let rx = a[1] * b[2] - a[2] * b[1];
     let ry = a[2] * b[0] - a[0] * b[2];
     let rz = a[0] * b[1] - a[1] * b[0];
     vec![rx, ry, rz]
+}
+
+fn iter_sum(n: i64) -> i64 {
+    (0..n).into_iter().sum()
+}
+
+fn iter_sum_2(n: i64) -> i64 {
+    (0..n).map(|k| 2 * k + 1).into_iter().sum()
 }
 
 fn sum_to_n(n: f64) -> f64 {
@@ -102,11 +114,37 @@ mod tests {
     }
 
     #[test]
+    fn test_dot() {
+        let k = vec![0, 1, 0];
+        let j = vec![1, 0, 0];
+        let result = dot(k, j);
+        assert!(result == 0);
+    }
+
+    #[test]
     fn test_cross() {
         let k = vec![0, 1, 0];
         let j = vec![1, 0, 0];
         let result = cross(k, j);
         assert!(result == vec![0, 0, -1]);
+    }
+
+    #[test]
+    fn test_iter_sum() {
+        assert!(iter_sum(100) == 4950)
+    }
+
+    #[test]
+    fn test_iter_sum_2() {
+        assert!(iter_sum_2(100) == 10000);
+    }
+
+    #[test]
+    fn test_iter_sum_3() {
+        let result = (1..3i32)
+            .map(|i| (4..7i32).map(|j| 3 * i * j).sum::<i32>())
+            .sum::<i32>();
+        assert!(result == 135);
     }
 
     #[test]
