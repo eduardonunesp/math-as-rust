@@ -1,4 +1,5 @@
 [package]
+authors = ["Eduardo Pereira <eduardonunesp@gmail.com>"]
 name = "math-as-rust"
 version = "0.1.0"
 edition = "2018"

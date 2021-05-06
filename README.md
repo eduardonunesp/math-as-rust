@@ -1,4 +1,4 @@
-# math-as-rust
+# math-as-rust 🦀
 
 >Based on [math-as-code](https://github.com/Jam3/math-as-code/blob/master/rust-README.md)
 
@@ -1006,3 +1006,17 @@ For example we to indicate that a point `x` is in the unit cube in 3D we say:
 <!-- x \in [0, 1]^3 -->
 
 In code we can represent an interval using a two element 1d array:
+
+Like this guide? Suggest some [more features](https://github.com/eduardonunesp/math-as-rust/issues/1) or send us a Pull Request!
+
+## Inspiration
+
+This repo is havely inspired, based on the original project by [math-as-code](https://github.com/Jam3/math-as-code), thank you very much to Jam3 for creating that awesome guide which serves as huge inspiration for me to build a Rust version 🦀
+
+## Contributing
+
+For details on how to contribute, see [CONTRIBUTING.md](./CONTRIBUTING.md).
+
+## License
+
+MIT, see [LICENSE.md](http://github.com/eduardonunesp/math-as-rust/blob/master/LICENSE.md) for details
