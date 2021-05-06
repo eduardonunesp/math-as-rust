@@ -8,3 +8,4 @@ edition = "2018"
 [dependencies]
 is_close = "0.1.1"
 num = "0.4"
+nalgebra = "0.26.2"

@@ -386,3 +386,97 @@ Or using the function `std::iter::Iterator::fold`
 (1..7).into_iter().fold(1, times);
 // # Out: 720
 ```
+
+## pipes
+
+Pipe symbols, known as *bars*, can mean different things depending on the
+context. Below are three common uses: [absolute value](#absolute-value),
+[Euclidean norm](#euclidean-norm), and [determinant](#determinant).
+
+These three features all describe the *length* of an object.
+
+### absolute value
+
+![pipes1](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%20x%20%5Cright%20%7C)
+
+<!-- \left | x \right | -->
+
+For a number *x*, `|x|` means the absolute value of *x*. In code:
+
+```rust
+let x = -5
+x.abs(x)
+// Out: 5
+```
+
+### Euclidean norm
+
+![pipes4](http://latex.codecogs.com/svg.latex?%5Cleft%20%5C%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%5C%7C)
+
+<!-- \left \| \mathbf{v} \right \| -->
+
+For a vector **v**, `‖v‖` is the [Euclidean norm](https://en.wikipedia.org/wiki/Norm_%28mathematics%29#Euclidean_norm) of **v**. It is also referred to as the "magnitude" or "length" of a vector.
+
+Often this is represented by double-bars to avoid ambiguity with the *absolute value* notation, but sometimes you may see it with single bars:
+
+![pipes2](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%7C)
+
+<!-- \left | \mathbf{v} \right | -->
+
+Here is an example using an array `[x, y, z]` to represent a 3D vector.
+
+```rust
+let v = vec![0, 4, -3]
+v.length
+// Out: 5
+```
+
+The `length** function:
+
+```rust
+fn vec_length(a: Vec<i64>) -> i64 {
+    let x = a[0];
+    let y = a[1];
+    let z = a[2];
+    return sqrt(x.pow(2) + y.pow(2) + z.pow(2));
+}
+```
+
+The implementation for arbitrary length'd vectors is left as an exercise for the
+reader.
+
+#### determinant
+
+![pipes3](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%5Cmathbf%7BA%7D%20%5Cright%20%7C)
+
+<!-- \left |\mathbf{A}  \right | -->
+
+For a matrix **A**, `|A|` means the
+[determinant](https://en.wikipedia.org/wiki/Determinant) of matrix **A**.
+
+Here is an example computing the determinant of a 2x2 identity matrix
+
+```rust
+let ident_2 = [1., 0., 0., 1.];
+let result = nalgebra::Matrix2::from_row_slice(&ident_2);
+// Out: 1
+```
+
+You should watch [3blue1brown](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab), but in short if a matrix (list of list of numbers)
+is interpreted as hitting a **coordinate system** with a
+*squisher-stretcher-rotater*, the determinant of that matrix is the **measure of
+how much the unit area/volume of the coordinate system got
+squished-stretched-rotated**.
+
+```rust
+// the determinant of the 100 x 100 identity matrix is still one, because the identity matrix doesn't squish, stretch, or rotate at all.
+nalgebra::DMatrix::<f32>::identity(100, 100)
+// Out: 1.0
+
+// 90 degree rotation.
+nalgebra::Matrix2::from_row_slice(&[0., -1., 1., 0.])
+// Out: 1.0
+
+```
+
+The second matrix was the [**2D rotation**](https://en.wikipedia.org/wiki/Rotation_matrix) at 90 degrees.

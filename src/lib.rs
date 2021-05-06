@@ -1,8 +1,8 @@
 #![allow(warnings, unused)]
 
-use std::convert::TryFrom;
+use std::{convert::TryFrom, usize};
 
-use num::Complex;
+use num::{integer::sqrt, Complex};
 
 #[macro_use]
 extern crate is_close;
@@ -63,6 +63,17 @@ fn sum_to_n(n: f64) -> f64 {
 
 fn times(x: i64, y: i64) -> i64 {
     x * y
+}
+
+fn abs(x: i64) -> i64 {
+    x.abs()
+}
+
+fn vec_length(a: Vec<i64>) -> i64 {
+    let x = a[0];
+    let y = a[1];
+    let z = a[2];
+    return sqrt(x.pow(2) + y.pow(2) + z.pow(2));
 }
 
 #[cfg(test)]
@@ -160,5 +171,28 @@ mod tests {
     fn test_capital_i() {
         let result = (1..7).into_iter().fold(1, times);
         assert!(result == 720);
+    }
+
+    #[test]
+    fn test_abs() {
+        assert!(abs(-5) == 5);
+    }
+
+    #[test]
+    fn test_vec_length() {
+        assert!(vec_length(vec![0, 4, -3]) == 5);
+    }
+
+    #[test]
+    fn test_determinant() {
+        let ident_2 = [1., 0., 0., 1.];
+        let result = nalgebra::Matrix2::from_row_slice(&ident_2);
+        assert!(result.determinant() == 1.);
+
+        let dm = nalgebra::DMatrix::<f32>::identity(100, 100);
+        assert!(dm.determinant() == 1.);
+
+        let dm2 = nalgebra::Matrix2::from_row_slice(&[0., -1., 1., 0.]);
+        assert!(dm2.determinant() == 1.);
     }
 }
