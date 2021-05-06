@@ -35,19 +35,6 @@ For simplicity, many of the code examples here operate on floating point values 
 - [hat **`â`**](#hat) - *unit vector*
 - ["element of" `∈` `∉`](#element)
 - [common number sets `ℝ` `ℤ` `ℚ` `ℕ`](#common-number-sets)
-- [function `ƒ`](#function)
-  - [piecewise function](#piecewise-function)
-  - [common functions](#common-functions)
-  - [function notation `↦` `→`](#function-notation)
-- [prime `′`](#prime)
-- [floor & ceiling `⌊` `⌉`](#floor--ceiling)
-- [arrows](#arrows)
-  - [material implication `⇒` `→`](#material-implication)
-  - [equality `<` `≥` `≫`](#equality)
-  - [conjunction & disjunction `∧` `∨`](#conjunction--disjunction)
-- [logical negation `¬` `~` `!`](#logical-negation)
-- [intervals](#intervals)
-- [more...](#more)
 
 ## variable name conventions
 
@@ -205,7 +192,6 @@ If these variables represent scalars, the code would be:
 ```rust
 let result = 3 * k * j
 ```
-
 
 #### vector multiplication
 
@@ -520,9 +506,6 @@ fn normalize(a: Vec<i64>) -> Vec<i64> {
     return b;
 }
 ```
-
-
-
 
 ## element
 
