@@ -97,6 +97,10 @@ fn is_real<T: num::Float>(x: T) -> bool {
     x.is_finite()
 }
 
+fn square(x: i64) -> i64 {
+    x.pow(2)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -254,5 +258,16 @@ mod tests {
     fn test_is_real_is_finite() {
         assert!(is_real(std::f64::consts::PI));
         assert!(is_real(1.));
+    }
+
+    #[test]
+    fn test_square_fn() {
+        assert!(square(2) == 4);
+    }
+
+    #[test]
+    fn test_square_lambda() {
+        let lambda_square = |x: i64| x.pow(2);
+        assert!(lambda_square(2) == 4);
     }
 }

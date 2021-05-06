@@ -640,3 +640,56 @@ As we saw earlier, the complex numbers are a particular struct.
 A complex number is a combination of a real and imaginary number, viewed as a co-ordinate in the 2D plane. For more info, see [A Visual, Intuitive Guide to Imaginary Numbers](http://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/).
 
 We can say `ℂ = {a + b*i | a,b ∈ ℝ}`, which is a notation called
+
+## functions
+
+[Functions](https://en.wikipedia.org/wiki/Function_%28mathematics%29) are fundamental features of mathematics, and the concept is fairly easy to translate into code.
+
+A **function** transforms an input into an output value. For example, the following is a function:
+
+![function1](http://latex.codecogs.com/svg.latex?x%5E%7B2%7D)
+
+<!-- x^{2} -->
+
+We can give this function a *name*. Commonly, we use `ƒ` to describe a function, but it could be named `A` or anything else.
+
+![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+
+<!-- f\left (x  \right ) = x^{2} -->
+
+In code, we might name it `square` and write it like this:
+
+```rust
+fn square(x: i64) -> i64 {
+    x.pow(2)
+}
+```
+
+Sometimes a function is not named, and instead the output is written.
+
+![function3](http://latex.codecogs.com/svg.latex?y%20%3D%20x%5E%7B2%7D)
+
+<!-- y = x^{2} -->
+
+In the above example, *x* is the input, the transformation is *squaring*, and *y*
+is the output. We can express this as an equation because, conventionally, we
+think of *x* as input and *y* as output.
+
+But we have a stronger idea called **anonymous functions** to generalize this.
+
+Just as we can name strings `x = "Alonzo"` then call them with their names *or*
+we can just pass string *literals*, we also have **function literals**.
+
+Math first, then python:
+
+`x ↦ x^2` is equivalent to the equational description above.
+
+```rust
+let lambda_square = |x: i64| x.pow(2);
+```
+
+Functions can also have multiple parameters, like in a programming language. These are known as *arguments* in mathematics, and the number of arguments a function takes is known as the *arity* of the function.
+
+![function4](http://latex.codecogs.com/svg.latex?f%28x%2Cy%29%20%3D%20%5Csqrt%7Bx%5E2%20&plus;%20y%5E2%7D)
+
+<!-- f(x,y) = \sqrt{x^2 + y^2} -->
