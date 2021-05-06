@@ -520,3 +520,140 @@ fn normalize(a: Vec<i64>) -> Vec<i64> {
     return b;
 }
 ```
+
+
+
+
+## element
+
+In set theory, the "element of" symbol `∈` and `∋` can be used to describe whether something is an element of a *set*. For example:
+
+![element1](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%203%20%5Cin%20A)
+
+<!-- A=\left \{3,9,14}{  \right \}, 3 \in A -->
+
+Here we have a set of numbers *A* = `{ 3, 9, 14 }` and we are saying `3` is an "element of" that set.
+
+The `in` keyword plays the role of the elementhood function, giving a bool.
+
+```rust
+let a = vec![3, 9, 14];
+a.contains(&3);
+// Out: true
+```
+
+Rust also has `set`. You can wrap any iterable `set` keyword to delete
+repeats.
+
+```rust
+let mut a = vec![3, 3, 3, 2, 4, 3, 3, 3, 1, 2, 4, 5, 3];
+let set: std::collections::HashSet<i32> = a.into_iter().collect();
+let mut set = set.into_iter().collect::<Vec<i32>>();
+&set.sort();
+// Out: Vec<i32>[1, 2, 3, 4, 5]
+
+// However the example above works even better with the dedup, which has the same effect of the set
+let mut a = vec![3, 3, 3, 2, 4, 3, 3, 3, 1, 2, 4, 5, 3];
+a.sort(); // sort
+a.dedup(); // remove the duplicated values
+// Out: Vec<i32>[1, 2, 3, 4, 5]
+
+let a: Vec<i32> = (1..20).step_by(4).collect();
+a.contains(&3);
+// Out: false
+```
+
+The backwards `∋` is the same, but the order changes:
+
+![element2](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%20A%20%5Cni%203)
+
+<!-- A=\left \{3,9,14}{  \right \}, A \ni 3 -->
+
+You can also use the "not an element of" symbols `∉` and `∌` like so:
+
+![element3](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%206%20%5Cnotin%20A)
+
+<!-- A=\left \{3,9,14}{  \right \}, 6 \notin A -->
+
+Which you know is represented by the `!` keyword in Rust. For instance negating a value `!(1 == 2)`
+
+## common number sets
+
+You may see some some large [Blackboard](https://en.wikipedia.org/wiki/Blackboard_bold) letters among equations. Often, these are used to describe sets.
+
+For example, we might describe *k* to be an [element of](#element) the set `ℝ`.
+
+![real](http://latex.codecogs.com/svg.latex?k%20%5Cin%20%5Cmathbb%7BR%7D)
+
+<!-- k \in \mathbb{R} -->
+
+Listed below are a few common sets and their symbols.
+
+### `ℝ` real numbers
+
+The large `ℝ` describes the set of *real numbers*. These include integers, as well as rational and irrational numbers.
+
+Computers approximate `ℝ` with `float`.
+
+You can use `is_finite` to check "*k* ∈ ℝ".
+
+```rust
+fn is_real<T: num::Float>(x: T) -> bool {
+    x.is_finite()
+}
+// Out: true
+```
+
+Again, you may elevate that bool to an `assertion` that makes-or-breaks the whole program
+with the `assert` keyword when you see fit.
+
+#### `ℚ` rational numbers
+
+Rational numbers are real numbers that can be expressed as a fraction, or
+*ratio*. Rational numbers cannot have zero as a denominator.
+
+Imagine taking `ℝ` and removing radicals (like `num::Float::sqrt`) and logarithms (in a
+family called
+[transcendentals](https://en.wikipedia.org/wiki/Transcendental_function)),
+that's basically what `ℚ` is, at least enough for a rough first approximation.
+
+This also means that all integers are rational numbers, since the denominator can be expressed as 1.
+
+An irrational number, on the other hand, is one that cannot be expressed as a ratio, like π (`std::f64::consts::PI`).
+
+#### `ℤ` integers
+
+An integer is a whole number. Just imagine starting from zero and one and
+building out an inventory with addition and subtraction.
+
+An integer has no division, no decimals.
+
+```rust
+let i:i32 = 1;
+let j:i64 = 999;
+```
+
+#### `ℕ` natural numbers
+
+A natural number, a non-negative integer.
+
+This is actually the only set invented by the [flying spaghetti monster](https://www.brainyquote.com/quotes/leopold_kronecker_338745): as for the
+others, humans have themselves to blame.
+
+Depending on the context and field of study, the set may or may not **start with zero**.
+
+...ok but, between you and me, **they 200% start with zero**.
+
+`ℕ` also happens to be the first **inductive construction** in the [study of
+datatypes](https://en.wikipedia.org/wiki/Semantics_(computer_science)), consisting of a single axiom ("Zero is a `ℕ`") and a single
+inference rule ("if `n` is a `ℕ` then `n + 1` is also a `ℕ`")
+
+`ℕ` in Rust natural numbers are `u8, u16, u32, u64, u128`.
+
+#### `ℂ` complex numbers
+
+As we saw earlier, the complex numbers are a particular struct.
+
+A complex number is a combination of a real and imaginary number, viewed as a co-ordinate in the 2D plane. For more info, see [A Visual, Intuitive Guide to Imaginary Numbers](http://betterexplained.com/articles/a-visual-intuitive-guide-to-imaginary-numbers/).
+
+We can say `ℂ = {a + b*i | a,b ∈ ℝ}`, which is a notation called

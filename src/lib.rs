@@ -93,6 +93,10 @@ fn normalize(a: Vec<f64>) -> Vec<f64> {
     return b;
 }
 
+fn is_real<T: num::Float>(x: T) -> bool {
+    x.is_finite()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -217,5 +221,38 @@ mod tests {
     fn test_normalize() {
         let a = vec![0., 4., -3.];
         assert!(normalize(a) == vec![0., 0.8, -0.6]);
+    }
+
+    #[test]
+    fn test_set_1() {
+        let a = vec![3, 9, 14];
+        assert!(a.contains(&3));
+    }
+
+    #[test]
+    fn test_set_2() {
+        let mut a = vec![3, 3, 3, 2, 4, 3, 3, 3, 1, 2, 4, 5, 3];
+        let set: std::collections::HashSet<i32> = a.into_iter().collect();
+        let mut set = set.into_iter().collect::<Vec<i32>>();
+        &set.sort();
+        assert!(set == vec![1, 2, 3, 4, 5]);
+
+        let mut a = vec![3, 3, 3, 2, 4, 3, 3, 3, 1, 2, 4, 5, 3];
+        a.sort();
+        a.dedup();
+        assert!(a == vec![1, 2, 3, 4, 5]);
+    }
+
+    #[test]
+    fn test_set_3() {
+        let a: Vec<i32> = (1..20).step_by(4).collect();
+        assert!(a.contains(&3) == false);
+        assert!(!(1 == 2));
+    }
+
+    #[test]
+    fn test_is_real_is_finite() {
+        assert!(is_real(std::f64::consts::PI));
+        assert!(is_real(1.));
     }
 }
