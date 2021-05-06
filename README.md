@@ -480,3 +480,43 @@ nalgebra::Matrix2::from_row_slice(&[0., -1., 1., 0.])
 ```
 
 The second matrix was the [**2D rotation**](https://en.wikipedia.org/wiki/Rotation_matrix) at 90 degrees.
+
+## hat
+
+In geometry, the "hat" symbol above a character is used to represent a [unit vector](https://en.wikipedia.org/wiki/Unit_vector). For example, here is the unit vector of **a**:
+
+![hat](http://latex.codecogs.com/svg.latex?%5Chat%7B%5Cmathbf%7Ba%7D%7D)
+
+<!-- \hat{\mathbf{a}} -->
+
+In Cartesian space, a unit vector is typically length 1. That means each part of the vector will be in the range of -1.0 to 1.0. Here we *normalize* a 3D vector into a unit vector:
+
+```rust
+let a = vec![0., 4., -3.];
+normalize(a)
+// Out: Vec<f64>[0., 0.8, -0.6]
+```
+
+If a vector is that which has magnitude and direction, normalization of a vector
+is the operation that deletes magnitude and preserves direction.
+
+Here is the `normalize` function, operating on 3D vectors:
+
+```rust
+fn normalize(a: Vec<i64>) -> Vec<i64> {
+    let mut b = a.to_vec();
+    let mut x = a[0];
+    let mut y = a[1];
+    let mut z = a[2];
+    let squared_length = x * x + y * y + z * z;
+
+    if squared_length > 0 {
+        let length = sqrt(squared_length);
+        b[0] = x / length;
+        b[1] = y / length;
+        b[2] = z / length;
+    }
+
+    return b;
+}
+```

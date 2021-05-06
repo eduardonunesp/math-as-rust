@@ -76,6 +76,23 @@ fn vec_length(a: Vec<i64>) -> i64 {
     return sqrt(x.pow(2) + y.pow(2) + z.pow(2));
 }
 
+fn normalize(a: Vec<f64>) -> Vec<f64> {
+    let mut b = a.to_vec();
+    let mut x = a[0];
+    let mut y = a[1];
+    let mut z = a[2];
+    let squared_length = x * x + y * y + z * z;
+
+    if squared_length > 0. {
+        let length = squared_length.sqrt();
+        b[0] = x / length;
+        b[1] = y / length;
+        b[2] = z / length;
+    }
+
+    return b;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -194,5 +211,11 @@ mod tests {
 
         let dm2 = nalgebra::Matrix2::from_row_slice(&[0., -1., 1., 0.]);
         assert!(dm2.determinant() == 1.);
+    }
+
+    #[test]
+    fn test_normalize() {
+        let a = vec![0., 4., -3.];
+        assert!(normalize(a) == vec![0., 0.8, -0.6]);
     }
 }
