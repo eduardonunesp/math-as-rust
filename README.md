@@ -693,3 +693,62 @@ Functions can also have multiple parameters, like in a programming language. The
 ![function4](http://latex.codecogs.com/svg.latex?f%28x%2Cy%29%20%3D%20%5Csqrt%7Bx%5E2%20&plus;%20y%5E2%7D)
 
 <!-- f(x,y) = \sqrt{x^2 + y^2} -->
+
+### piecewise function
+
+Some functions will use different relationships depending on the input value, *x*.
+
+The following function *ƒ* chooses between two "sub functions" depending on the input value.
+
+![piecewise1](http://latex.codecogs.com/svg.latex?f%28x%29%3D%20%5Cbegin%7Bcases%7D%20%5Cfrac%7Bx%5E2-x%7D%7Bx%7D%2C%26%20%5Ctext%7Bif%20%7D%20x%5Cgeq%201%5C%5C%200%2C%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D)
+
+<!--    f(x)=
+\begin{cases}
+    \frac{x^2-x}{x},& \text{if } x\geq 1\\
+    0, & \text{otherwise}
+\end{cases} -->
+
+This is very similar to `if` / `else` in code. The right-side conditions are often written as **"for x < 0"** or **"if x = 0"**. If the condition is true, the function to the left is used.
+
+In piecewise functions, **"otherwise"** and **"elsewhere"** are analogous to the `else` statement in code.
+
+```rust
+fn f(x: f64) -> f64 {
+    if x >= 1. {
+        x.powf(2.) - x / x
+    } else {
+        0.
+    }
+}
+```
+
+### common functions
+
+There are some function names that are ubiquitous in mathematics. For a programmer, these might be analogous to functions.
+
+One such example is the *sgn* function. This is the *signum* or *sign* function. Let's use [piecewise function](#piecewise-function) notation to describe it:
+
+![sgn](http://latex.codecogs.com/svg.latex?sgn%28x%29%20%3A%3D%20%5Cbegin%7Bcases%7D%20-1%26%20%5Ctext%7Bif%20%7D%20x%20%3C%200%5C%5C%200%2C%20%26%20%5Ctext%7Bif%20%7D%20%7Bx%20%3D%200%7D%5C%5C%201%2C%20%26%20%5Ctext%7Bif%20%7D%20x%20%3E%200%5C%5C%20%5Cend%7Bcases%7D)
+
+<!-- sgn(x) :=
+\begin{cases}
+    -1& \text{if } x < 0\\
+    0, & \text{if } {x = 0}\\
+    1, & \text{if } x > 0\\
+\end{cases} -->
+
+In code, it might look like this:
+
+```rust
+fn sgn(x: i32) -> i32 {
+    match x {
+        x if x < 0 => -1,
+        x if x > 0 => 1,
+        _ => 0,
+    }
+}
+```
+
+See [signum](https://docs.rs/num/0.1.42/num/fn.signum.html) for this function as a module.
+
+Other examples of such functions: *sin*, *cos*, *tan* can be found on the Rust standard library as traits on [module num](https://docs.rs/num/0.1.42/num/index.html)

@@ -101,6 +101,22 @@ fn square(x: i64) -> i64 {
     x.pow(2)
 }
 
+fn piece_wise(x: f64) -> f64 {
+    if x >= 1. {
+        x.powf(2.) - x / x
+    } else {
+        0.
+    }
+}
+
+fn sgn(x: i32) -> i32 {
+    match x {
+        x if x < 0 => -1,
+        x if x > 0 => 1,
+        _ => 0,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
