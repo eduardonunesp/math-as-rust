@@ -1,4 +1,4 @@
-# math-as-rust [Under Development]
+# math-as-rust
 
 >Based on [math-as-code](https://github.com/Jam3/math-as-code/blob/master/rust-README.md)
 
@@ -35,6 +35,17 @@ For simplicity, many of the code examples here operate on floating point values 
 - [hat **`â`**](#hat) - *unit vector*
 - ["element of" `∈` `∉`](#element)
 - [common number sets `ℝ` `ℤ` `ℚ` `ℕ`](#common-number-sets)
+- [function `ƒ`](#function)
+  - [piecewise function](#piecewise-function)
+  - [common functions](#common-functions)
+  - [function notation `↦` `→`](#function-notation)
+- [prime `′`](#prime)
+- [floor & ceiling `⌊` `⌉`](#floor--ceiling)
+- [arrows](#arrows)
+  - [material implication `⇒` `→`](#material-implication)
+  - [equality `<` `≥` `≫`](#equality)
+  - [conjunction & disjunction `∧` `∨`](#conjunction--disjunction)
+- [logical negation `¬` `~` `!`](#logical-negation)
 
 ## variable name conventions
 
@@ -680,7 +691,7 @@ But we have a stronger idea called **anonymous functions** to generalize this.
 Just as we can name strings `x = "Alonzo"` then call them with their names *or*
 we can just pass string *literals*, we also have **function literals**.
 
-Math first, then python:
+Math first, then Rust:
 
 `x ↦ x^2` is equivalent to the equational description above.
 
@@ -752,3 +763,246 @@ fn sgn(x: i32) -> i32 {
 See [signum](https://docs.rs/num/0.1.42/num/fn.signum.html) for this function as a module.
 
 Other examples of such functions: *sin*, *cos*, *tan* can be found on the Rust standard library as traits on [module num](https://docs.rs/num/0.1.42/num/index.html)
+
+### function notation
+
+In some literature, functions may be defined with more explicit notation. For example, let's go back to the `square` function we mentioned earlier:
+
+![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+
+<!-- f\left (x  \right ) = x^{2} -->
+
+It might also be written in the following form:
+
+![mapsto](http://latex.codecogs.com/svg.latex?f%20%3A%20x%20%5Cmapsto%20x%5E2)
+
+<!-- f : x \mapsto x^2 -->
+
+The arrow here with a tail typically means "maps to," as in *x maps to x<sup>2</sup>*.
+
+Sometimes, when it isn't obvious, the notation will also describe the *domain* and *codomain* of the function. A more formal definition of *ƒ* might be written as:
+
+![funcnot](http://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20f%20%3A%26%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D%5C%5C%20%26x%20%5Cmapsto%20x%5E2%20%5Cend%7Balign*%7D)
+
+<!-- \begin{align*}
+f :&\mathbb{R} \rightarrow \mathbb{R}\\
+&x \mapsto x^2
+\end{align*}
+ -->
+
+A function's *domain* and *codomain* is a bit like its *input* and *output* types, respectively. Here's another example, using our earlier *sgn* function, which outputs an integer:
+
+![domain2](http://latex.codecogs.com/svg.latex?sgn%20%3A%20%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BZ%7D)
+
+<!-- sgn : \mathbb{R} \rightarrow \mathbb{Z} -->
+
+The arrow here (without a tail) is used to map one *set* to another.
+
+## prime
+
+The prime symbol (`′`) is often used in variable names to describe things which are similar, without giving it a different name altogether. It can describe the "next value" after some transformation.
+
+For example, if we take a 2D point *(x, y)* and rotate it, you might name the result *(x′, y′)*. Or, the *transpose* of matrix **M** might be named **M′**.
+
+In code, we typically just assign the variable a more descriptive name, like `transformedPosition`.
+
+For a mathematical [function](#function), the prime symbol often describes the *derivative* of that function. Derivatives will be explained in a future section. Let's take our earlier function:
+
+![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+
+<!-- f\left (x  \right ) = x^{2} -->
+
+Its derivative could be written with a prime `′` symbol:
+
+![prime1](http://latex.codecogs.com/svg.latex?f%27%28x%29%20%3D%202x)
+
+<!-- f'(x) = 2x -->
+
+In code:
+
+```rust
+fn f(x: i64) -> i64 {
+    x.pow(2)
+}
+
+fn f_prime(x: i64) -> i64 {
+    return 2 * x;
+}
+```
+
+Multiple prime symbols can be used to describe the second derivative *ƒ′′* and third derivative *ƒ′′′*. After this, authors typically express higher orders with roman numerals *ƒ*<sup>IV</sup> or superscript numbers *ƒ*<sup>(n)</sup>.
+
+## floor & ceiling
+
+The special brackets `⌊x⌋` and `⌈x⌉` represent the *floor* and *ceil* functions, respectively.
+
+![floor](http://latex.codecogs.com/svg.latex?floor%28x%29%20%3D%20%5Clfloor%20x%20%5Crfloor)
+
+<!-- floor(x) =  \lfloor x \rfloor -->
+
+![ceil](http://latex.codecogs.com/svg.latex?ceil%28x%29%20%3D%20%5Clceil%20x%20%5Crceil)
+
+<!-- ceil(x) =  \lceil x \rceil -->
+
+In code:
+
+```rust
+fn floor<T: num::Float>(x: T) -> T {
+    x.floor()
+}
+
+fn ceil<T: num::Float>(x: T) -> T {
+    x.ceil()
+}
+```
+
+When the two symbols are mixed `⌊x⌉`, it typically represents a function that rounds to the nearest integer:
+
+![round](http://latex.codecogs.com/svg.latex?round%28x%29%20%3D%20%5Clfloor%20x%20%5Crceil)
+
+<!-- round(x) =  \lfloor x \rceil -->
+
+In code:
+
+```rust
+fn round<T: num::Float>(x: T) -> T {
+    x.round()
+}
+```
+
+## arrows
+
+Arrows are often used in [function notation](#function-notation). Here are a few other areas you might see them.
+
+### material implication
+
+Arrows like `⇒` and `→` are sometimes used in logic for *material implication.* That is, if A is true, then B is also true.
+
+![material1](http://latex.codecogs.com/svg.latex?A%20%5CRightarrow%20B)
+
+<!-- A \Rightarrow B -->
+
+Interpreting this as code might look like this:
+
+```rust
+if a == true {
+  assert!(b == true);
+}
+```
+
+The arrows can go in either direction `⇐` `⇒`, or both `⇔`. When *A ⇒ B* and *B ⇒ A*, they are said to be equivalent:
+
+![material-equiv](http://latex.codecogs.com/svg.latex?A%20%5CLeftrightarrow%20B)
+
+<!-- A \Leftrightarrow B -->
+
+#### equality
+
+In math, the `<` `>` `≤` and `≥` are typically used in the same way we use them in code: *less than*, *greater than*, *less than or equal to* and *greater than or equal to*, respectively.
+
+```rust
+50 > 2 == true;
+2 < 10 == true;
+3 <= 4 == true;
+4 >= 4 == true;
+```
+
+On rare occasions you might see a slash through these symbols, to describe *not*. As in, *k* is "not greater than" *j*.
+
+![ngt](http://latex.codecogs.com/svg.latex?k%20%5Cngtr%20j)
+
+<!-- k \ngtr j -->
+
+The `≪` and `≫` are sometimes used to represent *significant* inequality. That is, *k* is an [order of magnitude](https://en.wikipedia.org/wiki/Order_of_magnitude) larger than *j*.
+
+![orderofmag](http://latex.codecogs.com/svg.latex?k%20%5Cgg%20j)
+
+<!-- k \gg j -->
+
+#### conjunction & disjunction
+
+Another use of arrows in logic is conjunction `∧` and disjunction `∨`. They are analogous to a programmer's `AND` and `OR` operators, respectively.
+
+The following shows conjunction `∧`, the logical `AND`.
+
+![and](http://latex.codecogs.com/svg.latex?k%20%3E%202%20%5Cland%20k%20%3C%204%20%5CLeftrightarrow%20k%20%3D%203)
+
+<!-- k > 2 \land k <  4 \Leftrightarrow k = 3   -->
+
+In Rust, we use `&&`. Assuming *k* is a natural number, the logic implies that *k* is 3:
+
+```rust
+if k > 2 && k < 4 {
+  assert!(k == 3);
+}
+```
+
+Since both sides are equivalent `⇔`, it also implies the following:
+
+```rust
+if k == 3 {
+  assert!(k > 2 && k < 4);
+}
+```
+
+The down arrow `∨` is logical disjunction, like the OR operator.
+
+![logic-or](http://latex.codecogs.com/svg.latex?A%20%5Clor%20B)
+
+<!-- A \lor B -->
+
+In code:
+
+```rust
+A || B
+```
+
+## logical negation
+
+Occasionally, the `¬`, `~` and `!` symbols are used to represent logical `NOT`. For example, *¬A* is only true if A is false.
+
+Here is a simple example using the *not* symbol:
+
+![negation](http://latex.codecogs.com/svg.latex?x%20%5Cneq%20y%20%5CLeftrightarrow%20%5Clnot%28x%20%3D%20y%29)
+
+<!-- x \neq y \Leftrightarrow \lnot(x = y) -->
+
+An example of how we might interpret this in code:
+
+```rust
+if (x != y) {
+  assert(!(x == y))
+}
+```
+
+*Note:* The tilde `~` has many different meanings depending on context. For example, *row equivalence* (matrix theory) or *same order of magnitude* (discussed in [equality](#equality)).
+
+## intervals
+
+Sometimes a function deals with real numbers restricted to some range of values, such a constraint can be represented using an *interval*
+
+For example we can represent the numbers between zero and one including/not including zero and/or one as:
+
+- Not including zero or one: ![interval-opened-left-opened-right](http://latex.codecogs.com/svg.latex?%280%2C%201%29)
+
+<!-- (0, 1) -->
+
+- Including zero or but not one: ![interval-closed-left-opened-right](http://latex.codecogs.com/svg.latex?%5B0%2C%201%29)
+
+<!-- [0, 1) -->
+
+- Not including zero but including one: ![interval-opened-left-closed-right](http://latex.codecogs.com/svg.latex?%280%2C%201%5D)
+
+<!-- (0, 1] -->
+
+- Including zero and one: ![interval-closed-left-closed-right](http://latex.codecogs.com/svg.latex?%5B0%2C%201%5D)
+
+<!-- [0, 1] -->
+
+For example we to indicate that a point `x` is in the unit cube in 3D we say:
+
+![interval-unit-cube](http://latex.codecogs.com/svg.latex?x%20%5Cin%20%5B0%2C%201%5D%5E3)
+
+<!-- x \in [0, 1]^3 -->
+
+In code we can represent an interval using a two element 1d array:

@@ -97,6 +97,18 @@ fn is_real<T: num::Float>(x: T) -> bool {
     x.is_finite()
 }
 
+fn floor<T: num::Float>(x: T) -> T {
+    x.floor()
+}
+
+fn ceil<T: num::Float>(x: T) -> T {
+    x.ceil()
+}
+
+fn round<T: num::Float>(x: T) -> T {
+    x.round()
+}
+
 fn square(x: i64) -> i64 {
     x.pow(2)
 }
@@ -115,6 +127,18 @@ fn sgn(x: i32) -> i32 {
         x if x > 0 => 1,
         _ => 0,
     }
+}
+
+fn f(x: i64) -> i64 {
+    x.pow(2)
+}
+
+fn f_prime(x: i64) -> i64 {
+    return 2 * x;
+}
+
+fn log_10(n: f64) -> f64 {
+    n.log(10.)
 }
 
 #[cfg(test)]
@@ -286,4 +310,7 @@ mod tests {
         let lambda_square = |x: i64| x.pow(2);
         assert!(lambda_square(2) == 4);
     }
+
+    #[test]
+    fn test_floor_ceil() {}
 }
