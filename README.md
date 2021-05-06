@@ -46,6 +46,7 @@ For simplicity, many of the code examples here operate on floating point values 
   - [equality `<` `≥` `≫`](#equality)
   - [conjunction & disjunction `∧` `∨`](#conjunction--disjunction)
 - [logical negation `¬` `~` `!`](#logical-negation)
+- [intervals](#intervals)
 
 ## variable name conventions
 
