@@ -1,4 +1,4 @@
-# math-as-rust
+# math-as-rust [Under Development]
 
 >Based on [math-as-code](https://github.com/Jam3/math-as-code/blob/master/rust-README.md)
 
