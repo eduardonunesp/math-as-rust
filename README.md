@@ -1012,7 +1012,7 @@ Like this guide? Suggest some [more features](https://github.com/eduardonunesp/m
 
 ## Inspiration
 
-This repo is havely inspired, based on the original project by [math-as-code](https://github.com/Jam3/math-as-code), thank you very much to Jam3 for creating that awesome guide which serves as huge inspiration for me to build a Rust version 🦀
+This repo is heavely inspired, based on the original project by [math-as-code](https://github.com/Jam3/math-as-code), thank you very much to Jam3 for creating that awesome guide which serves as huge inspiration for me to build a Rust version 🦀
 
 ## Contributing
 
