@@ -99,7 +99,10 @@ In mathematical notation, you might see the `:=`, `=:` and `=` symbols being use
 
 For example, the following defines *x* to be another name for 2*kj*.
 
-![equals1](http://latex.codecogs.com/svg.latex?x%20%3A%3D%202kj)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\bg{black}x%20%3A%3D%202kj">
+  <img src="http://latex.codecogs.com/png.image?x%20%3A%3D%202kj">
+</picture>
 
 <!-- x := 2kj -->
 
