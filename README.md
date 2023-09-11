@@ -99,7 +99,10 @@ In mathematical notation, you might see the `:=`, `=:` and `=` symbols being use
 
 For example, the following defines *x* to be another name for 2*kj*.
 
-![equals1](http://latex.codecogs.com/svg.latex?x%20%3A%3D%202kj)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}x%20%3A%3D%202kj">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}x%20%3A%3D%202kj">
+</picture>
 
 <!-- x := 2kj -->
 
@@ -123,7 +126,10 @@ fn plus(x: f64, y: f64) -> f64 {
 
 The following, on the other hand, represents equality:
 
-![equals2](http://latex.codecogs.com/svg.latex?x%20%3D%202kj)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}x%20%3D%202kj">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}x%20%3D%202kj">
+</picture>
 
 <!-- x = 2kj -->
 
@@ -142,7 +148,10 @@ It's important to know when a falsehood ought to crash a program vs. when you ju
 
 A square root operation is of the form:
 
-![squareroot](http://latex.codecogs.com/svg.latex?%5Cleft%28%5Csqrt%7Bx%7D%5Cright%29%5E2%20%3D%20x)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cleft%28%5Csqrt%7Bx%7D%5Cright%29%5E2%20%3D%20x">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cleft%28%5Csqrt%7Bx%7D%5Cright%29%5E2%20%3D%20x">
+</picture>
 
 <!-- \left(\sqrt{x}\right)^2 = x -->
 
@@ -153,9 +162,15 @@ println!("{}", 2f64.sqrt());
 // Out: 1.4142135623730951
 ```
 
-Complex numbers are expressions of the form ![complex](http://latex.codecogs.com/svg.latex?a&space;&plus;&space;ib), where ![a](http://latex.codecogs.com/svg.latex?a) is the real part and ![b](http://latex.codecogs.com/svg.latex?b) is the imaginary part. The imaginary number ![i](http://latex.codecogs.com/svg.latex?i) is defined as:
+Complex numbers are expressions of the form <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}i">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}i">
+</picture> is defined as:
 
-![imaginary](http://latex.codecogs.com/svg.latex?i%3D%5Csqrt%7B-1%7D).
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}i%3D%5Csqrt%7B-1%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}i%3D%5Csqrt%7B-1%7D">
+</picture>.
 <!-- i=\sqrt{-1} -->
 
 ```rust
@@ -183,7 +198,10 @@ They might seem obvious, but it's important to understand the subtle differences
 
 Both symbols can represent simple multiplication of scalars. The following are equivalent:
 
-![dotcross1](http://latex.codecogs.com/svg.latex?5%20%5Ccdot%204%20%3D%205%20%5Ctimes%204)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}5%20%5Ccdot%204%20%3D%205%20%5Ctimes%204">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}5%20%5Ccdot%204%20%3D%205%20%5Ctimes%204">
+</picture>
 
 <!-- 5 \cdot 4 = 5 \times 4 -->
 
@@ -195,7 +213,10 @@ let result = 5 * 4
 
 Often, the multiplication sign is only used to avoid ambiguity (e.g. between two numbers). Here, we can omit it entirely:
 
-![dotcross2](http://latex.codecogs.com/svg.latex?3kj)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}3kj">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}3kj">
+</picture>
 
 <!-- 3kj -->
 
@@ -211,7 +232,10 @@ To denote multiplication of one vector with a scalar, or element-wise multiplica
 
 Let's take our earlier example but apply it to vectors. For element-wise vector multiplication, you might see an open dot `∘` to represent the [Hadamard product](https://en.wikipedia.org/wiki/Hadamard_product_%28matrices%29).<sup>[2]</sup>
 
-![dotcross3](http://latex.codecogs.com/svg.latex?3%5Cmathbf%7Bk%7D%5Ccirc%5Cmathbf%7Bj%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}3%5Cmathbf%7Bk%7D%5Ccirc%5Cmathbf%7Bj%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}3%5Cmathbf%7Bk%7D%5Ccirc%5Cmathbf%7Bj%7D">
+</picture>
 
 <!-- 3\mathbf{k}\circ\mathbf{j} -->
 
@@ -246,7 +270,10 @@ fn multiply_scalar(a: Vec<i64>, scalar: i64) -> Vec<i64> {
 
 The dot symbol `·` can be used to denote the [*dot product*](https://en.wikipedia.org/wiki/Dot_product) of two vectors. Sometimes this is called the *scalar product* since it evaluates to a scalar.
 
-![dotcross4](http://latex.codecogs.com/svg.latex?%5Cmathbf%7Bk%7D%5Ccdot%20%5Cmathbf%7Bj%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cmathbf%7Bk%7D%5Ccdot%20%5Cmathbf%7Bj%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cmathbf%7Bk%7D%5Ccdot%20%5Cmathbf%7Bj%7D">
+</picture>
 
 <!-- \mathbf{k}\cdot \mathbf{j} -->
 
@@ -271,7 +298,10 @@ fn dot(a, b):
 
 The cross symbol `×` can be used to denote the [*cross product*](https://en.wikipedia.org/wiki/Cross_product) of two vectors.
 
-![dotcross5](http://latex.codecogs.com/svg.latex?%5Cmathbf%7Bk%7D%5Ctimes%20%5Cmathbf%7Bj%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cmathbf%7Bk%7D%5Ctimes%20%5Cmathbf%7Bj%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cmathbf%7Bk%7D%5Ctimes%20%5Cmathbf%7Bj%7D">
+</picture>
 
 <!-- \mathbf{k}\times \mathbf{j} -->
 
@@ -301,7 +331,10 @@ fn cross(a: Vec<i64>, b: Vec<i64>) -> Vec<i64> {
 
 The big Greek `Σ` (Sigma) is for [Summation](https://en.wikipedia.org/wiki/Summation). In other words: summing up some numbers.
 
-![sigma](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B100%7Di)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Csum_%7Bi%3D1%7D%5E%7B100%7Di">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Csum_%7Bi%3D1%7D%5E%7B100%7Di">
+</picture>
 
 <!-- \sum_{i=1}^{100}i -->
 
@@ -327,7 +360,10 @@ fn sum_to_n(n: f64) -> f64 {
 
 Here is another example where the *i*, or the "what to sum," is different:
 
-![sum2](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B100%7D%282i&plus;1%29)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Csum_%7Bi%3D1%7D%5E%7B100%7D%282i&plus;1%29">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Csum_%7Bi%3D1%7D%5E%7B100%7D%282i&plus;1%29">
+</picture>
 
 <!-- \sum_{i=1}^{100}(2i+1) -->
 
@@ -349,7 +385,10 @@ evaluate the right-most sigma first, unless the author has enclosed them in
 parentheses to alter the order. However, in the following case, since we are
 dealing with finite sums, the order does not matter.
 
-![sigma3](http://latex.codecogs.com/svg.latex?%5Csum_%7Bi%3D1%7D%5E%7B2%7D%5Csum_%7Bj%3D4%7D%5E%7B6%7D%283ij%29)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Csum_%7Bi%3D1%7D%5E%7B2%7D%5Csum_%7Bj%3D4%7D%5E%7B6%7D%283ij%29">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Csum_%7Bi%3D1%7D%5E%7B2%7D%5Csum_%7Bj%3D4%7D%5E%7B6%7D%283ij%29">
+</picture>
 
 <!-- \sum_{i=1}^{2}\sum_{j=4}^{6}(3ij) -->
 
@@ -368,7 +407,10 @@ The capital Pi or "Big Pi" is very similar to [Sigma](#sigma), except we are usi
 
 Take the following:
 
-![capitalPi](http://latex.codecogs.com/svg.latex?%5Cprod_%7Bi%3D1%7D%5E%7B6%7Di)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cprod_%7Bi%3D1%7D%5E%7B6%7Di">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cprod_%7Bi%3D1%7D%5E%7B6%7Di">
+</picture>
 
 <!-- \prod_{i=1}^{6}i -->
 
@@ -395,7 +437,10 @@ These three features all describe the *length* of an object.
 
 ### absolute value
 
-![pipes1](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%20x%20%5Cright%20%7C)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cleft%20%7C%20x%20%5Cright%20%7C">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cleft%20%7C%20x%20%5Cright%20%7C">
+</picture>
 
 <!-- \left | x \right | -->
 
@@ -409,7 +454,10 @@ x.abs(x)
 
 ### Euclidean norm
 
-![pipes4](http://latex.codecogs.com/svg.latex?%5Cleft%20%5C%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%5C%7C)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cleft%20%5C%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%5C%7C">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cleft%20%5C%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%5C%7C">
+</picture>
 
 <!-- \left \| \mathbf{v} \right \| -->
 
@@ -417,7 +465,10 @@ For a vector **v**, `‖v‖` is the [Euclidean norm](https://en.wikipedia.org/w
 
 Often this is represented by double-bars to avoid ambiguity with the *absolute value* notation, but sometimes you may see it with single bars:
 
-![pipes2](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%7C)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cleft%20%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%7C">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cleft%20%7C%20%5Cmathbf%7Bv%7D%20%5Cright%20%7C">
+</picture>
 
 <!-- \left | \mathbf{v} \right | -->
 
@@ -445,7 +496,10 @@ reader.
 
 #### determinant
 
-![pipes3](http://latex.codecogs.com/svg.latex?%5Cleft%20%7C%5Cmathbf%7BA%7D%20%5Cright%20%7C)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cleft%20%7C%5Cmathbf%7BA%7D%20%5Cright%20%7C">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cleft%20%7C%5Cmathbf%7BA%7D%20%5Cright%20%7C">
+</picture>
 
 <!-- \left |\mathbf{A}  \right | -->
 
@@ -483,7 +537,10 @@ The second matrix was the [**2D rotation**](https://en.wikipedia.org/wiki/Rotati
 
 In geometry, the "hat" symbol above a character is used to represent a [unit vector](https://en.wikipedia.org/wiki/Unit_vector). For example, here is the unit vector of **a**:
 
-![hat](http://latex.codecogs.com/svg.latex?%5Chat%7B%5Cmathbf%7Ba%7D%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Chat%7B%5Cmathbf%7Ba%7D%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Chat%7B%5Cmathbf%7Ba%7D%7D">
+</picture>
 
 <!-- \hat{\mathbf{a}} -->
 
@@ -523,7 +580,10 @@ fn normalize(a: Vec<i64>) -> Vec<i64> {
 
 In set theory, the "element of" symbol `∈` and `∋` can be used to describe whether something is an element of a *set*. For example:
 
-![element1](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%203%20%5Cin%20A)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%203%20%5Cin%20A">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%203%20%5Cin%20A">
+</picture>
 
 <!-- A=\left \{3,9,14}{  \right \}, 3 \in A -->
 
@@ -560,13 +620,19 @@ a.contains(&3);
 
 The backwards `∋` is the same, but the order changes:
 
-![element2](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%20A%20%5Cni%203)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%20A%20%5Cni%203">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%20A%20%5Cni%203">
+</picture>
 
 <!-- A=\left \{3,9,14}{  \right \}, A \ni 3 -->
 
 You can also use the "not an element of" symbols `∉` and `∌` like so:
 
-![element3](http://latex.codecogs.com/svg.latex?A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%206%20%5Cnotin%20A)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%206%20%5Cnotin%20A">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%3D%5Cleft%20%5C%7B3%2C9%2C14%7D%7B%20%5Cright%20%5C%7D%2C%206%20%5Cnotin%20A">
+</picture>
 
 <!-- A=\left \{3,9,14}{  \right \}, 6 \notin A -->
 
@@ -578,7 +644,10 @@ You may see some some large [Blackboard](https://en.wikipedia.org/wiki/Blackboar
 
 For example, we might describe *k* to be an [element of](#element) the set `ℝ`.
 
-![real](http://latex.codecogs.com/svg.latex?k%20%5Cin%20%5Cmathbb%7BR%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}k%20%5Cin%20%5Cmathbb%7BR%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}k%20%5Cin%20%5Cmathbb%7BR%7D">
+</picture>
 
 <!-- k \in \mathbb{R} -->
 
@@ -659,13 +728,19 @@ We can say `ℂ = {a + b*i | a,b ∈ ℝ}`, which is a notation called
 
 A **function** transforms an input into an output value. For example, the following is a function:
 
-![function1](http://latex.codecogs.com/svg.latex?x%5E%7B2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}x%5E%7B2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}x%5E%7B2%7D">
+</picture>
 
 <!-- x^{2} -->
 
 We can give this function a *name*. Commonly, we use `ƒ` to describe a function, but it could be named `A` or anything else.
 
-![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+</picture>
 
 <!-- f\left (x  \right ) = x^{2} -->
 
@@ -679,7 +754,10 @@ fn square(x: i64) -> i64 {
 
 Sometimes a function is not named, and instead the output is written.
 
-![function3](http://latex.codecogs.com/svg.latex?y%20%3D%20x%5E%7B2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}y%20%3D%20x%5E%7B2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}y%20%3D%20x%5E%7B2%7D">
+</picture>
 
 <!-- y = x^{2} -->
 
@@ -702,7 +780,10 @@ let lambda_square = |x: i64| x.pow(2);
 
 Functions can also have multiple parameters, like in a programming language. These are known as *arguments* in mathematics, and the number of arguments a function takes is known as the *arity* of the function.
 
-![function4](http://latex.codecogs.com/svg.latex?f%28x%2Cy%29%20%3D%20%5Csqrt%7Bx%5E2%20&plus;%20y%5E2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%28x%2Cy%29%20%3D%20%5Csqrt%7Bx%5E2%20&plus;%20y%5E2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%28x%2Cy%29%20%3D%20%5Csqrt%7Bx%5E2%20&plus;%20y%5E2%7D">
+</picture>
 
 <!-- f(x,y) = \sqrt{x^2 + y^2} -->
 
@@ -712,7 +793,10 @@ Some functions will use different relationships depending on the input value, *x
 
 The following function *ƒ* chooses between two "sub functions" depending on the input value.
 
-![piecewise1](http://latex.codecogs.com/svg.latex?f%28x%29%3D%20%5Cbegin%7Bcases%7D%20%5Cfrac%7Bx%5E2-x%7D%7Bx%7D%2C%26%20%5Ctext%7Bif%20%7D%20x%5Cgeq%201%5C%5C%200%2C%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%28x%29%3D%20%5Cbegin%7Bcases%7D%20%5Cfrac%7Bx%5E2-x%7D%7Bx%7D%2C%26%20%5Ctext%7Bif%20%7D%20x%5Cgeq%201%5C%5C%200%2C%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%28x%29%3D%20%5Cbegin%7Bcases%7D%20%5Cfrac%7Bx%5E2-x%7D%7Bx%7D%2C%26%20%5Ctext%7Bif%20%7D%20x%5Cgeq%201%5C%5C%200%2C%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D">
+</picture>
 
 <!--    f(x)=
 \begin{cases}
@@ -740,7 +824,10 @@ There are some function names that are ubiquitous in mathematics. For a programm
 
 One such example is the *sgn* function. This is the *signum* or *sign* function. Let's use [piecewise function](#piecewise-function) notation to describe it:
 
-![sgn](http://latex.codecogs.com/svg.latex?sgn%28x%29%20%3A%3D%20%5Cbegin%7Bcases%7D%20-1%26%20%5Ctext%7Bif%20%7D%20x%20%3C%200%5C%5C%200%2C%20%26%20%5Ctext%7Bif%20%7D%20%7Bx%20%3D%200%7D%5C%5C%201%2C%20%26%20%5Ctext%7Bif%20%7D%20x%20%3E%200%5C%5C%20%5Cend%7Bcases%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}sgn%28x%29%20%3A%3D%20%5Cbegin%7Bcases%7D%20-1%26%20%5Ctext%7Bif%20%7D%20x%20%3C%200%5C%5C%200%2C%20%26%20%5Ctext%7Bif%20%7D%20%7Bx%20%3D%200%7D%5C%5C%201%2C%20%26%20%5Ctext%7Bif%20%7D%20x%20%3E%200%5C%5C%20%5Cend%7Bcases%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}sgn%28x%29%20%3A%3D%20%5Cbegin%7Bcases%7D%20-1%26%20%5Ctext%7Bif%20%7D%20x%20%3C%200%5C%5C%200%2C%20%26%20%5Ctext%7Bif%20%7D%20%7Bx%20%3D%200%7D%5C%5C%201%2C%20%26%20%5Ctext%7Bif%20%7D%20x%20%3E%200%5C%5C%20%5Cend%7Bcases%7D">
+</picture>
 
 <!-- sgn(x) :=
 \begin{cases}
@@ -769,13 +856,19 @@ Other examples of such functions: *sin*, *cos*, *tan* can be found on the Rust s
 
 In some literature, functions may be defined with more explicit notation. For example, let's go back to the `square` function we mentioned earlier:
 
-![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+</picture>
 
 <!-- f\left (x  \right ) = x^{2} -->
 
 It might also be written in the following form:
 
-![mapsto](http://latex.codecogs.com/svg.latex?f%20%3A%20x%20%5Cmapsto%20x%5E2)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%20%3A%20x%20%5Cmapsto%20x%5E2">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%20%3A%20x%20%5Cmapsto%20x%5E2">
+</picture>
 
 <!-- f : x \mapsto x^2 -->
 
@@ -783,7 +876,10 @@ The arrow here with a tail typically means "maps to," as in *x maps to x<sup>2</
 
 Sometimes, when it isn't obvious, the notation will also describe the *domain* and *codomain* of the function. A more formal definition of *ƒ* might be written as:
 
-![funcnot](http://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20f%20%3A%26%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D%5C%5C%20%26x%20%5Cmapsto%20x%5E2%20%5Cend%7Balign*%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5Cbegin%7Balign*%7D%20f%20%3A%26%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D%5C%5C%20%26x%20%5Cmapsto%20x%5E2%20%5Cend%7Balign*%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5Cbegin%7Balign*%7D%20f%20%3A%26%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BR%7D%5C%5C%20%26x%20%5Cmapsto%20x%5E2%20%5Cend%7Balign*%7D">
+</picture>
 
 <!-- \begin{align*}
 f :&\mathbb{R} \rightarrow \mathbb{R}\\
@@ -793,7 +889,10 @@ f :&\mathbb{R} \rightarrow \mathbb{R}\\
 
 A function's *domain* and *codomain* is a bit like its *input* and *output* types, respectively. Here's another example, using our earlier *sgn* function, which outputs an integer:
 
-![domain2](http://latex.codecogs.com/svg.latex?sgn%20%3A%20%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BZ%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}sgn%20%3A%20%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BZ%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}sgn%20%3A%20%5Cmathbb%7BR%7D%20%5Crightarrow%20%5Cmathbb%7BZ%7D">
+</picture>
 
 <!-- sgn : \mathbb{R} \rightarrow \mathbb{Z} -->
 
@@ -809,13 +908,19 @@ In code, we typically just assign the variable a more descriptive name, like `tr
 
 For a mathematical [function](#function), the prime symbol often describes the *derivative* of that function. Derivatives will be explained in a future section. Let's take our earlier function:
 
-![function2](http://latex.codecogs.com/svg.latex?f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%5Cleft%20%28x%20%5Cright%20%29%20%3D%20x%5E%7B2%7D">
+</picture>
 
 <!-- f\left (x  \right ) = x^{2} -->
 
 Its derivative could be written with a prime `′` symbol:
 
-![prime1](http://latex.codecogs.com/svg.latex?f%27%28x%29%20%3D%202x)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}f%27%28x%29%20%3D%202x">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}f%27%28x%29%20%3D%202x">
+</picture>
 
 <!-- f'(x) = 2x -->
 
@@ -837,11 +942,17 @@ Multiple prime symbols can be used to describe the second derivative *ƒ′′* 
 
 The special brackets `⌊x⌋` and `⌈x⌉` represent the *floor* and *ceil* functions, respectively.
 
-![floor](http://latex.codecogs.com/svg.latex?floor%28x%29%20%3D%20%5Clfloor%20x%20%5Crfloor)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}floor%28x%29%20%3D%20%5Clfloor%20x%20%5Crfloor">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}floor%28x%29%20%3D%20%5Clfloor%20x%20%5Crfloor">
+</picture>
 
 <!-- floor(x) =  \lfloor x \rfloor -->
 
-![ceil](http://latex.codecogs.com/svg.latex?ceil%28x%29%20%3D%20%5Clceil%20x%20%5Crceil)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}ceil%28x%29%20%3D%20%5Clceil%20x%20%5Crceil">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}ceil%28x%29%20%3D%20%5Clceil%20x%20%5Crceil">
+</picture>
 
 <!-- ceil(x) =  \lceil x \rceil -->
 
@@ -859,7 +970,10 @@ fn ceil<T: num::Float>(x: T) -> T {
 
 When the two symbols are mixed `⌊x⌉`, it typically represents a function that rounds to the nearest integer:
 
-![round](http://latex.codecogs.com/svg.latex?round%28x%29%20%3D%20%5Clfloor%20x%20%5Crceil)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}round%28x%29%20%3D%20%5Clfloor%20x%20%5Crceil">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}round%28x%29%20%3D%20%5Clfloor%20x%20%5Crceil">
+</picture>
 
 <!-- round(x) =  \lfloor x \rceil -->
 
@@ -879,7 +993,10 @@ Arrows are often used in [function notation](#function-notation). Here are a few
 
 Arrows like `⇒` and `→` are sometimes used in logic for *material implication.* That is, if A is true, then B is also true.
 
-![material1](http://latex.codecogs.com/svg.latex?A%20%5CRightarrow%20B)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%20%5CRightarrow%20B">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%20%5CRightarrow%20B">
+</picture>
 
 <!-- A \Rightarrow B -->
 
@@ -893,7 +1010,10 @@ if a == true {
 
 The arrows can go in either direction `⇐` `⇒`, or both `⇔`. When *A ⇒ B* and *B ⇒ A*, they are said to be equivalent:
 
-![material-equiv](http://latex.codecogs.com/svg.latex?A%20%5CLeftrightarrow%20B)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%20%5CLeftrightarrow%20B">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%20%5CLeftrightarrow%20B">
+</picture>
 
 <!-- A \Leftrightarrow B -->
 
@@ -910,13 +1030,19 @@ In math, the `<` `>` `≤` and `≥` are typically used in the same way we use t
 
 On rare occasions you might see a slash through these symbols, to describe *not*. As in, *k* is "not greater than" *j*.
 
-![ngt](http://latex.codecogs.com/svg.latex?k%20%5Cngtr%20j)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}k%20%5Cngtr%20j">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}k%20%5Cngtr%20j">
+</picture>
 
 <!-- k \ngtr j -->
 
 The `≪` and `≫` are sometimes used to represent *significant* inequality. That is, *k* is an [order of magnitude](https://en.wikipedia.org/wiki/Order_of_magnitude) larger than *j*.
 
-![orderofmag](http://latex.codecogs.com/svg.latex?k%20%5Cgg%20j)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}k%20%5Cgg%20j">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}k%20%5Cgg%20j">
+</picture>
 
 <!-- k \gg j -->
 
@@ -926,7 +1052,10 @@ Another use of arrows in logic is conjunction `∧` and disjunction `∨`. They 
 
 The following shows conjunction `∧`, the logical `AND`.
 
-![and](http://latex.codecogs.com/svg.latex?k%20%3E%202%20%5Cland%20k%20%3C%204%20%5CLeftrightarrow%20k%20%3D%203)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}k%20%3E%202%20%5Cland%20k%20%3C%204%20%5CLeftrightarrow%20k%20%3D%203">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}k%20%3E%202%20%5Cland%20k%20%3C%204%20%5CLeftrightarrow%20k%20%3D%203">
+</picture>
 
 <!-- k > 2 \land k <  4 \Leftrightarrow k = 3   -->
 
@@ -948,7 +1077,10 @@ if k == 3 {
 
 The down arrow `∨` is logical disjunction, like the OR operator.
 
-![logic-or](http://latex.codecogs.com/svg.latex?A%20%5Clor%20B)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}A%20%5Clor%20B">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}A%20%5Clor%20B">
+</picture>
 
 <!-- A \lor B -->
 
@@ -964,7 +1096,10 @@ Occasionally, the `¬`, `~` and `!` symbols are used to represent logical `NOT`.
 
 Here is a simple example using the *not* symbol:
 
-![negation](http://latex.codecogs.com/svg.latex?x%20%5Cneq%20y%20%5CLeftrightarrow%20%5Clnot%28x%20%3D%20y%29)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}x%20%5Cneq%20y%20%5CLeftrightarrow%20%5Clnot%28x%20%3D%20y%29">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}x%20%5Cneq%20y%20%5CLeftrightarrow%20%5Clnot%28x%20%3D%20y%29">
+</picture>
 
 <!-- x \neq y \Leftrightarrow \lnot(x = y) -->
 
@@ -984,25 +1119,40 @@ Sometimes a function deals with real numbers restricted to some range of values,
 
 For example we can represent the numbers between zero and one including/not including zero and/or one as:
 
-- Not including zero or one: ![interval-opened-left-opened-right](http://latex.codecogs.com/svg.latex?%280%2C%201%29)
+- Not including zero or one: <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%280%2C%201%29">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%280%2C%201%29">
+</picture>
 
 <!-- (0, 1) -->
 
-- Including zero or but not one: ![interval-closed-left-opened-right](http://latex.codecogs.com/svg.latex?%5B0%2C%201%29)
+- Including zero or but not one: <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5B0%2C%201%29">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5B0%2C%201%29">
+</picture>
 
 <!-- [0, 1) -->
 
-- Not including zero but including one: ![interval-opened-left-closed-right](http://latex.codecogs.com/svg.latex?%280%2C%201%5D)
+- Not including zero but including one: <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%280%2C%201%5D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%280%2C%201%5D">
+</picture>
 
 <!-- (0, 1] -->
 
-- Including zero and one: ![interval-closed-left-closed-right](http://latex.codecogs.com/svg.latex?%5B0%2C%201%5D)
+- Including zero and one: <picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}%5B0%2C%201%5D">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}%5B0%2C%201%5D">
+</picture>
 
 <!-- [0, 1] -->
 
 For example we to indicate that a point `x` is in the unit cube in 3D we say:
 
-![interval-unit-cube](http://latex.codecogs.com/svg.latex?x%20%5Cin%20%5B0%2C%201%5D%5E3)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="http://latex.codecogs.com/png.image?\dpi{100}\bg{black}x%20%5Cin%20%5B0%2C%201%5D%5E3">
+  <img src="http://latex.codecogs.com/png.image?\dpi{100}x%20%5Cin%20%5B0%2C%201%5D%5E3">
+</picture>
 
 <!-- x \in [0, 1]^3 -->
 
